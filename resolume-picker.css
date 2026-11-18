@@ -1,0 +1,59 @@
+[data-apc-selectable] {
+  cursor: crosshair !important;
+}
+
+.layer .buttons > .handle {
+  cursor: pointer !important;
+}
+
+.layer .buttons > .handle:focus-visible {
+  outline: 2px solid #65caff;
+  outline-offset: -2px;
+}
+
+#apc-marks {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+#apc-marks .apc-mark {
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border: 1px solid #65caff75;
+  border-radius: 2px;
+}
+
+#apc-marks .apc-stamped {
+  background: #2289d341;
+  border-color: #56c2fd;
+}
+
+#apc-marks [data-apc-picked] {
+  border: 2px solid #79dbff;
+}
+
+#apc-marks [data-apc-thin] {
+  border-width: 1px;
+}
+
+#apc-marks [data-apc-thin] .apc-label {
+  display: none;
+}
+
+#apc-marks .apc-label {
+  color: #d3f0ff;
+  text-shadow: 0 1px 2px #081c2e;
+  font: 10px/12px system-ui, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#apc-marks [data-apc-narrow] {
+  font-size: 8px;
+}

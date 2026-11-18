@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Como a APC Virtual para Resolume usa, armazena e protege dados na extensão.">
+  <title>Política de Privacidade — APC Virtual para Resolume</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font: 16px/1.65 system-ui, sans-serif;
+      color: #edf2fb;
+      background: #0a101d;
+      --surface: #172236;
+      --stroke: #35445c;
+      --blue: #79e1fb;
+      --muted: #b1bed3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 12% 0, #213454 0, transparent 46%),
+        radial-gradient(ellipse at 92% 20%, #28203f 0, transparent 42%);
+    }
+    main { width: min(860px, 100% - 32px); margin: 0 auto; padding: 48px 0 64px; }
+    h1, h2, p { margin: 0; }
+    h1 { margin: 6px 0 12px; font-size: clamp(2rem, 6vw, 3.5rem); line-height: 1.05; letter-spacing: -.05em; }
+    h2 { margin: 5px 0 12px; font-size: 1.35rem; }
+    p + p { margin-top: 12px; }
+    a { color: var(--blue); }
+    code { color: var(--blue); font: .9em ui-monospace, monospace; }
+    .eyebrow, .number { color: var(--blue); font-size: .75rem; font-weight: 750; letter-spacing: .15em; }
+    .lead, .muted { color: var(--muted); }
+    .updated { margin-top: 16px; color: var(--muted); font-size: .9rem; }
+    .control {
+      margin: 28px 0;
+      padding: 20px;
+      border: 1px solid #56c2fd70;
+      border-radius: 14px;
+      background: #172236d9;
+    }
+    .control h2 { color: var(--blue); }
+    .section { padding: 24px 0; border-top: 1px solid var(--stroke); }
+    .section-heading { display: flex; align-items: baseline; gap: 12px; }
+    .section-heading .number { flex: none; }
+    .list { display: grid; gap: 10px; margin: 16px 0 0; padding: 0; list-style: none; }
+    .list li { padding: 14px 16px; border: 1px solid var(--stroke); border-radius: 10px; background: #172236b8; }
+    .list strong { display: block; margin-bottom: 3px; }
+    footer { padding-top: 20px; border-top: 1px solid var(--stroke); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 560px) {
+      main { padding-top: 32px; }
+      .control { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">TRANSPARÊNCIA E CONTROLE</p>
+      <h1>Política de Privacidade</h1>
+      <p class="lead">Saiba quais informações a APC Virtual para Resolume utiliza, onde são armazenadas e com quem são compartilhadas.</p>
+      <p class="updated">Atualizada em 18 de novembro de 2026</p>
+    </header>
+
+    <aside class="control">
+      <h2>Você mantém o controle</h2>
+      <p>A extensão não opera servidores próprios e não envia dados a serviços externos. As configurações ficam no armazenamento local do navegador. A comunicação necessária para controlar a composição ocorre somente com o Webserver do Resolume no próprio dispositivo.</p>
+    </aside>
+
+    <section class="section" id="utilizacao">
+      <div class="section-heading">
+        <span class="number">01 · UTILIZAÇÃO</span>
+        <h2>Dados que a extensão utiliza</h2>
+      </div>
+      <p>As informações são usadas para mostrar a controladora, exibir a interface do Resolume e executar os pareamentos que você configurar.</p>
+      <ul class="list">
+        <li><strong>Preferências</strong>Endereço local do Webserver que você configurou.</li>
+        <li><strong>Pareamentos e cenas</strong>Identificadores e rótulos dos controles pareados, opções de inversão dos faders, nomes das cenas e seus modos de disparo.</li>
+        <li><strong>Composição do Resolume</strong>Nome da composição, camadas, clipes e parâmetros disponíveis. A extensão consulta essas informações no Webserver local para apresentar os controles e validar os pareamentos.</li>
+        <li><strong>Comandos solicitados por você</strong>Ao acionar pads ou faders, a extensão envia ao Webserver local o comando e o valor correspondentes ao controle selecionado.</li>
+      </ul>
+      <p class="muted">A extensão não coleta dados para publicidade, não vende informações e não executa analytics ou telemetria de uso.</p>
+    </section>
+
+    <section class="section" id="transmissao">
+      <div class="section-heading">
+        <span class="number">02 · TRANSMISSÃO</span>
+        <h2>Serviços externos</h2>
+      </div>
+      <ul class="list">
+        <li><strong>Webserver do Resolume</strong>A extensão aceita somente endereços HTTP em <code>localhost</code> ou <code>127.0.0.1</code>. Ela consulta a API local para ler a composição e envia comandos quando você usa os controles. A porta pode ser configurada por você.</li>
+        <li><strong>Interface de seleção</strong>A página de exemplo do Webserver é carregada no navegador a partir do mesmo endereço local. As mensagens entre essa página e a controladora são trocadas dentro do navegador.</li>
+        <li><strong>Outros serviços</strong>A extensão não envia dados a servidores do desenvolvedor ou de terceiros e não integra serviços de publicidade, análise ou autenticação.</li>
+      </ul>
+      <p>O Webserver é executado pelo Resolume no seu dispositivo. A disponibilidade e a segurança desse serviço dependem da configuração do Resolume e do seu ambiente local.</p>
+    </section>
+
+    <section class="section" id="armazenamento">
+      <div class="section-heading">
+        <span class="number">03 · DADOS LOCAIS</span>
+        <h2>Armazenamento e retenção</h2>
+      </div>
+      <p>O endereço configurado, os pareamentos e as preferências de cena são armazenados em <code>localStorage</code>, no perfil do navegador. A extensão não sincroniza esses dados com uma conta ou servidor remoto.</p>
+      <p>Os agendamentos ativos existem somente enquanto a página da controladora está aberta; eles não são persistidos e são cancelados quando a página é fechada ou recarregada.</p>
+      <p>As informações permanecem no navegador até que você as remova, limpe os dados locais da extensão ou desinstale a extensão.</p>
+    </section>
+
+    <section class="section" id="escolhas">
+      <div class="section-heading">
+        <span class="number">04 · SUAS ESCOLHAS</span>
+        <h2>Como controlar ou remover seus dados</h2>
+      </div>
+      <ul class="list">
+        <li><strong>Limpar pareamentos</strong>Use “Limpar todos os pareamentos” para remover os pareamentos e as configurações de cena salvos pela extensão. Essa ação também cancela os agendamentos ativos, mas mantém o endereço do Webserver configurado.</li>
+        <li><strong>Remover o endereço local</strong>Limpe os dados locais da extensão nas configurações do navegador para apagar também o endereço do Webserver salvo.</li>
+        <li><strong>Desinstalar</strong>A desinstalação remove a extensão e os dados locais associados pelo navegador.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="seguranca">
+      <div class="section-heading">
+        <span class="number">05 · PROTEÇÃO</span>
+        <h2>Segurança</h2>
+      </div>
+      <p>A extensão limita suas solicitações ao Webserver local do Resolume e não transmite dados para fora do dispositivo. Os dados armazenados estão sujeitos às proteções do navegador e do dispositivo. Nenhum método de armazenamento ou transmissão é totalmente isento de riscos; mantenha o navegador, o dispositivo e o Webserver local protegidos.</p>
+    </section>
+
+    <footer>
+      <p><strong>06 · ALTERAÇÕES E CONTATO</strong></p>
+      <p>Esta política pode ser atualizada para refletir mudanças na extensão ou no tratamento de dados. A data no início da página indica a revisão mais recente.</p>
+      <p>Dúvidas sobre esta política? Use o canal de contato indicado na ficha da extensão na Chrome Web Store.</p>
+    </footer>
+  </main>
+</body>
+</html>

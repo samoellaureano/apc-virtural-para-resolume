@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APC Virtual · Resolume</title>
+  <link rel="stylesheet" href="controller.css">
+  <script type="module" src="controller.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="top">
+      <div><p class="eyebrow">CONTROLADORA · RESOLUME</p><h1>APC <span>Virtual</span></h1><p class="subtitle">Pads, cenas e mixagem ao vivo</p></div>
+      <form id="connection">
+        <label for="server">Webserver do Resolume</label>
+        <div class="inline"><input id="server" type="url" required spellcheck="false" value="http://localhost:8088">
+          <button type="submit">Conectar</button></div>
+      </form>
+    </header>
+    <div class="toolbar">
+      <p id="status" role="status">Conectando…</p>
+      <div class="inline">
+        <button id="overview" type="button">Ver atalhos</button>
+        <button id="clear-mappings" class="danger" type="button" disabled>Limpar todos os pareamentos</button>
+      </div>
+    </div>
+    <section class="device" aria-label="Simulador APC Mini MK2" tabindex="0">
+      <div class="bank">
+        <div class="device-top"><strong>Banco de cenas <span>01</span></strong><span>48 PADS · 9 FADERS</span></div>
+        <div id="pads" class="pads"></div>
+        <div id="tracks" class="tracks"></div>
+      </div>
+      <div class="mixer">
+        <div class="mixer-heading">MIXAGEM <span>01 — MASTER</span></div>
+        <div id="faders" class="faders"></div>
+      </div>
+    </section>
+    <div id="timer-bar" class="toolbar" hidden>
+      <p id="timer-summary" role="status"></p><button id="cancel-timers" type="button">Cancelar agendamentos</button>
+    </div>
+    <p class="hint"><kbd>Botão direito</kbd> ou <kbd>Shift + F10</kbd> para configurar. Clique novamente em um pad agendado para cancelar.</p>
+  </main>
+  <dialog id="mapper" aria-labelledby="modal-title">
+    <header class="modal-header">
+      <div><p class="eyebrow">MAPA DO RESOLUME</p><h2 id="modal-title"></h2></div>
+      <div class="inline">
+        <button id="close" type="button" aria-label="Fechar mapa">Fechar</button>
+        <button id="save" type="button" class="primary" hidden>Salvar pareamentos</button>
+      </div>
+      <p id="save-status" role="status"></p>
+    </header>
+    <p id="modal-hint"></p>
+    <div id="scene-settings" hidden>
+      <label>Nome da cena <input id="scene-name" type="text" maxlength="120" placeholder="Ex.: Abertura do show"></label>
+      <label>Disparo <select id="scene-mode">
+        <option value="immediate">Imediato ao clicar</option>
+        <option value="delay">Contagem regressiva</option>
+        <option value="clock">Data e hora marcadas</option>
+      </select></label>
+      <label id="scene-delay-field" hidden>Atraso (segundos) <input id="scene-delay" type="number" min="1" step="1" value="5"></label>
+      <label id="scene-time-field" hidden>Data e hora locais <input id="scene-time" type="datetime-local"></label>
+      <p id="scene-help" class="hint"></p>
+    </div>
+    <p id="timer-notice" class="hint" role="status"></p>
+    <div class="toolbar">
+      <label id="overlay-option"><input id="overlay" type="checkbox" checked> Mostrar decalque</label>
+      <button id="refresh" type="button">Atualizar composição</button>
+    </div>
+    <p id="map-status" role="status"></p>
+    <section id="editor" hidden>
+      <h3>Pareamentos deste controle</h3>
+      <ul id="bindings"></ul>
+    </section>
+    <div id="stage" tabindex="0" aria-label="Painel com rolagem da interface oficial do Resolume"></div>
+    <details id="hidden-targets" hidden>
+      <summary>Parâmetros fora da tela atual do Resolume</summary>
+      <div class="inline"><select id="hidden-target" aria-label="Parâmetro fora da tela"></select>
+        <button id="add-hidden" type="button">Adicionar</button></div>
+    </details>
+  </dialog>
+</body>
+</html>
